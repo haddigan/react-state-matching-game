@@ -11,7 +11,7 @@
     "start-refactor": "webpack-dev-server --open --mode development --env.entryDir=refactor",
     "build": "webpack --mode development --config webpack.config.js",
     "test": "jest",
-    "test:module-2": "jest test/module-2/",
+    "test:module-2": "jest test/module-2/ --watch",
     "test:module-3": "jest test/module-3/",
     "test:module-4": "jest test/module-4/",
     "test:module-5": "jest test/module-5/"
