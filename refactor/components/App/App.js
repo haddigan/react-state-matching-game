@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import OptionsPanel from "../OptionsPanel";
 import Board from "../Board";
+import GameContext from "../../GameContext";
 import { createTiles, indexOfSelected } from "../../misc/utils";
 
 import "./App.css";
@@ -79,13 +80,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">Turbo-Matcher</header>
-        <OptionsPanel
-          startGame={this.startGame}
-          playing={this.state.playing}
-          numTiles={this.state.numTiles}
-          handleNumTileChange={this.handleNumTileChange}
-        />
-        <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />}
+        <GameContext.Provider value={this.state}>
+          <OptionsPanel
+            startGame={this.startGame}
+            playing={this.state.playing}
+            numTiles={this.state.numTiles}
+            handleNumTileChange={this.handleNumTileChange}
+          />
+          <Board numTiles={this.state.numTiles} tiles={this.state.tiles} />
+        </GameContext.Provider>
+        }
       </div>
     );
   }
